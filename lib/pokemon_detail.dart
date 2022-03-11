@@ -40,7 +40,7 @@ class PokemonDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(pokemon.name.toUpperCase()),
-        backgroundColor: Colors.red,
+        backgroundColor: pokemonColor(pokemon.type),
       ),
       body: SingleChildScrollView(
         child: ClipRect(
@@ -57,18 +57,18 @@ class PokemonDetailScreen extends StatelessWidget {
                     alignment: Alignment.bottomCenter,
                     child: Image.network(pokemon.imageUrl),
                   ),
-                  Text("\n"),
+                  SizedBox(height: 20),
                   ActionChip(
                       label: Text(pokemon.type,
                           style: TextStyle(color: Colors.white, height: 2)),
                       backgroundColor: pokemonColor(pokemon.type),
                       onPressed: () {}),
-                  Text("\n"),
+                  SizedBox(height: 20),
                   Text(pokemon.name.toUpperCase(),
                       style: TextStyle(fontSize: 30)),
-                  Text("\n"),
+                  SizedBox(height: 20),
                   Text(pokemon.description, style: TextStyle(fontSize: 15)),
-                  Text("\n"),
+                  SizedBox(height: 30),
                   Text("Attack"),
                   Slider(
                     value: pokemon.attack.toDouble(),
@@ -84,12 +84,12 @@ class PokemonDetailScreen extends StatelessWidget {
                   Slider(
                     value: pokemon.defense.toDouble(),
                     max: 150,
-                    divisions: 150,
+                    // divisions: 150,
                     label: pokemon.defense.round().toString(),
                     onChanged: (double value) {},
                     activeColor: Color(0xFFe84c3b),
                     inactiveColor: Colors.black26,
-                    //thumbColor: Color(0xFFe84c3b),
+                    thumbColor: Color(0xFFe84c3b),
                   ),
                 ], //Widget[]
               ), //Column
